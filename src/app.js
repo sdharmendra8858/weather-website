@@ -65,9 +65,13 @@ app.get('/weather',(req, res)=>{
             }
 
             res.send({
-                forecast : forecastData,
+                forecast : forecastData.summary,
                 location,
-                address:req.query.address
+                address:req.query.address,
+                temperature : forecastData.currentTemperature,
+                rainChance : forecastData.rainChance,
+                temperatureMin : forecastData.minTemp,
+                temperatureMax : forecastData.maxTemp
             })
 
         })
